@@ -621,11 +621,11 @@ nav a.active {
 
 .photo-gallery {
 
-    display: grid;
+    display: flex;
 
-    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
 
-    gap: 25px;
+    width: 100%;
 
     padding-bottom: 100px;
 
@@ -633,6 +633,8 @@ nav a.active {
 
 
 .photo-card {
+
+    width: min(900px, 100%);
 
     background: #101015;
 
@@ -647,7 +649,15 @@ nav a.active {
 
 .photo-wrapper {
 
+    width: 100%;
+
     background: #07070a;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
 
     overflow: hidden;
 
@@ -658,22 +668,26 @@ nav a.active {
 
     width: 100%;
 
-    height: 600px;
+    height: auto;
 
-    object-fit: cover;
+    max-height: 80vh;
+
+    object-fit: contain;
+
+    object-position: center;
 
     display: block;
 
-    cursor: pointer;
+    cursor: zoom-in;
 
-    transition: transform 0.4s ease;
+    transition: transform 0.35s ease;
 
 }
 
 
-.photo-wrapper:hover img {
+.photo-wrapper img:hover {
 
-    transform: scale(1.025);
+    transform: scale(1.01);
 
 }
 
@@ -719,7 +733,7 @@ nav a.active {
 
 
 /* =========================
-   LIGHTBOX / FULLSCREEN
+   FULLSCREEN IMAGE VIEWER
 ========================= */
 
 .lightbox {
@@ -728,7 +742,7 @@ nav a.active {
 
     inset: 0;
 
-    z-index: 9999;
+    z-index: 99999;
 
     display: flex;
 
@@ -736,9 +750,9 @@ nav a.active {
 
     justify-content: center;
 
-    padding: 30px;
+    padding: 25px;
 
-    background: rgba(0,0,0,0.94);
+    background: rgba(0,0,0,0.96);
 
     backdrop-filter: blur(10px);
 
@@ -746,7 +760,7 @@ nav a.active {
 
     visibility: hidden;
 
-    transition: 0.25s ease;
+    transition: opacity 0.25s ease;
 
 }
 
@@ -762,19 +776,21 @@ nav a.active {
 
 .lightbox-image {
 
-    max-width: 94vw;
-
-    max-height: 90vh;
+    display: block;
 
     width: auto;
 
     height: auto;
 
+    max-width: 96vw;
+
+    max-height: 92vh;
+
     object-fit: contain;
 
-    border-radius: 8px;
+    border-radius: 6px;
 
-    box-shadow: 0 20px 80px rgba(0,0,0,0.7);
+    cursor: default;
 
 }
 
@@ -787,19 +803,23 @@ nav a.active {
 
     right: 25px;
 
-    width: 45px;
+    z-index: 100000;
 
-    height: 45px;
+    width: 48px;
+
+    height: 48px;
+
+    border: 1px solid rgba(255,255,255,0.2);
 
     border-radius: 50%;
 
-    border: 1px solid rgba(255,255,255,0.15);
-
-    background: rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.1);
 
     color: white;
 
-    font-size: 25px;
+    font-size: 28px;
+
+    line-height: 1;
 
     cursor: pointer;
 
@@ -819,21 +839,23 @@ nav a.active {
 
     position: fixed;
 
-    bottom: 25px;
-
     left: 50%;
+
+    bottom: 20px;
 
     transform: translateX(-50%);
 
-    color: white;
-
-    font-size: 14px;
-
-    background: rgba(0,0,0,0.65);
-
-    padding: 10px 18px;
+    padding: 9px 17px;
 
     border-radius: 20px;
+
+    background: rgba(0,0,0,0.7);
+
+    color: white;
+
+    font-size: 13px;
+
+    white-space: nowrap;
 
 }
 
@@ -947,14 +969,56 @@ footer {
 
     .photo-gallery {
 
-        grid-template-columns: 1fr;
+        width: 100%;
+
+    }
+
+
+    .photo-card {
+
+        width: 100%;
 
     }
 
 
     .photo-wrapper img {
 
-        height: 500px;
+        width: 100%;
+
+        height: auto;
+
+        max-height: none;
+
+        object-fit: contain;
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .lightbox {
+
+        padding: 10px;
+
+    }
+
+
+    .lightbox-image {
+
+        max-width: 98vw;
+
+        max-height: 88vh;
+
+    }
+
+
+    .lightbox-close {
+
+        top: 12px;
+
+        right: 12px;
 
     }
 
@@ -992,16 +1056,15 @@ footer {
     }
 
 
-    .photo-frame img {
-
-        height: 380px;
-
-    }
-
-
     .photo-wrapper img {
 
-        height: 420px;
+        width: 100%;
+
+        height: auto;
+
+        max-height: none;
+
+        object-fit: contain;
 
     }
 
