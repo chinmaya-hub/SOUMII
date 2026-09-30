@@ -1,40 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Game Moments ❤️</title>
 
     <link rel="stylesheet" href="style.css">
+
 </head>
+
 
 <body>
 
-    <!-- Navigation -->
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+
     <header class="navbar">
 
         <a href="index.html" class="logo">
             Our Little World ❤️
         </a>
 
+
         <nav>
-            <a href="index.html">Home</a>
-            <a href="games.html" class="active">Game Moments</a>
-            <a href="chats.html">Chat Moments</a>
-            <a href="photos.html">Photos</a>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="games.html" class="active">
+                Game Moments
+            </a>
+
+            <a href="chats.html">
+                Chat Moments
+            </a>
+
+            <a href="photos.html">
+                Photos
+            </a>
+
         </nav>
 
     </header>
 
 
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+
     <main class="page">
+
 
         <section class="page-heading">
 
-            <p class="small-title">OUR MEMORIES</p>
+            <p class="small-title">
+                OUR MEMORIES
+            </p>
 
-            <h1>Game Moments 🎮</h1>
+
+            <h1>
+                Game Moments 🎮
+            </h1>
+
 
             <p>
                 Little gaming moments that became beautiful memories.
@@ -43,10 +81,16 @@
         </section>
 
 
+
+        <!-- =========================
+             GAME GALLERY
+        ========================== -->
+
         <section class="gallery">
 
 
-            <!-- Game Photo 1 -->
+            <!-- GAME PHOTO 1 -->
+
             <article class="memory-item">
 
                 <div class="image-container">
@@ -54,17 +98,23 @@
                     <img
                         src="game pic 1.jpg"
                         alt="Game Moment 1"
-                        onclick="openLightbox(this.src, this.alt)"
+                        class="gallery-image"
+                        data-full-image="game pic 1.jpg"
+                        data-title="Game Moment 1"
                     >
 
+
                     <button
+                        type="button"
                         class="view-button"
-                        onclick="openLightbox('game pic 1.jpg', 'Game Moment 1')"
+                        data-full-image="game pic 1.jpg"
+                        data-title="Game Moment 1"
                     >
                         View Fullscreen
                     </button>
 
                 </div>
+
 
                 <div class="memory-info">
 
@@ -72,7 +122,11 @@
                         GAME MOMENT
                     </span>
 
-                    <h2>Our First Game Moment</h2>
+
+                    <h2>
+                        Our First Game Moment
+                    </h2>
+
 
                     <p>
                         One more little memory to keep forever. ❤️
@@ -83,7 +137,9 @@
             </article>
 
 
-            <!-- Game Photo 2 -->
+
+            <!-- GAME PHOTO 2 -->
+
             <article class="memory-item">
 
                 <div class="image-container">
@@ -91,17 +147,23 @@
                     <img
                         src="game pic 2.jpg"
                         alt="Game Moment 2"
-                        onclick="openLightbox(this.src, this.alt)"
+                        class="gallery-image"
+                        data-full-image="game pic 2.jpg"
+                        data-title="Game Moment 2"
                     >
 
+
                     <button
+                        type="button"
                         class="view-button"
-                        onclick="openLightbox('game pic 2.jpg', 'Game Moment 2')"
+                        data-full-image="game pic 2.jpg"
+                        data-title="Game Moment 2"
                     >
                         View Fullscreen
                     </button>
 
                 </div>
+
 
                 <div class="memory-info">
 
@@ -109,7 +171,11 @@
                         GAME MOMENT
                     </span>
 
-                    <h2>Another Little Moment</h2>
+
+                    <h2>
+                        Another Little Moment
+                    </h2>
+
 
                     <p>
                         Just us having fun together. 🎮❤️
@@ -120,7 +186,9 @@
             </article>
 
 
-            <!-- Game Photo 3 -->
+
+            <!-- GAME PHOTO 3 -->
+
             <article class="memory-item">
 
                 <div class="image-container">
@@ -128,17 +196,23 @@
                     <img
                         src="game pic 3.png"
                         alt="Game Moment 3"
-                        onclick="openLightbox(this.src, this.alt)"
+                        class="gallery-image"
+                        data-full-image="game pic 3.png"
+                        data-title="Game Moment 3"
                     >
 
+
                     <button
+                        type="button"
                         class="view-button"
-                        onclick="openLightbox('game pic 3.png', 'Game Moment 3')"
+                        data-full-image="game pic 3.png"
+                        data-title="Game Moment 3"
                     >
                         View Fullscreen
                     </button>
 
                 </div>
+
 
                 <div class="memory-info">
 
@@ -146,7 +220,11 @@
                         GAME MOMENT
                     </span>
 
-                    <h2>A Memory Worth Keeping</h2>
+
+                    <h2>
+                        A Memory Worth Keeping
+                    </h2>
+
 
                     <p>
                         Some moments are small, but they stay with us. ❤️
@@ -159,15 +237,29 @@
 
         </section>
 
+
     </main>
 
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
 
     <footer>
         Made with ❤️ for our little world.
     </footer>
 
 
-    <script src="script.js"></script>
+
+    <!-- IMPORTANT:
+         ?v=2 forces GitHub Pages/browser
+         to load the new JavaScript.
+    -->
+
+    <script src="script.js?v=2"></script>
+
 
 </body>
+
 </html>
