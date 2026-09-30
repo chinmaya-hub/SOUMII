@@ -1,360 +1,351 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Soumii ❤️</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
+  <title>EREMIKA FOREVER</title>
 
-html{
-  scroll-behavior:smooth;
-}
+  <meta
+    name="description"
+    content="A private little diary of our everyday moments, memories and stories."
+  >
 
-body{
-  font-family:Arial, sans-serif;
-  background:#090014;
-  color:white;
-  overflow-x:hidden;
-}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-canvas{
-  position:fixed;
-  inset:0;
-  z-index:-2;
-}
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap"
+    rel="stylesheet"
+  >
 
-.bg{
-  position:fixed;
-  inset:0;
-  background:
-    radial-gradient(circle at 20% 20%,#ff2f92 0,transparent 25%),
-    radial-gradient(circle at 80% 70%,#7b2cff 0,transparent 30%),
-    linear-gradient(135deg,#090014,#160021,#05000b);
-  z-index:-3;
-}
-
-section{
-  min-height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  padding:40px 20px;
-}
-
-.card{
-  width:min(900px,95%);
-  padding:55px 30px;
-  border-radius:35px;
-  background:rgba(255,255,255,.08);
-  border:1px solid rgba(255,255,255,.2);
-  box-shadow:0 0 60px rgba(255,45,145,.25);
-  backdrop-filter:blur(18px);
-  animation:float 5s ease-in-out infinite;
-}
-
-@keyframes float{
-  50%{transform:translateY(-12px)}
-}
-
-h1{
-  font-size:clamp(45px,9vw,100px);
-  background:linear-gradient(90deg,#fff,#ff75bb,#fff);
-  -webkit-background-clip:text;
-  color:transparent;
-  animation:shine 3s linear infinite;
-}
-
-@keyframes shine{
-  to{filter:hue-rotate(360deg)}
-}
-
-.subtitle{
-  margin:20px auto;
-  font-size:clamp(18px,3vw,28px);
-  color:#ffd5ec;
-}
-
-button{
-  border:0;
-  padding:18px 35px;
-  border-radius:50px;
-  background:linear-gradient(135deg,#ff3d9a,#a82cff);
-  color:white;
-  font-size:18px;
-  font-weight:bold;
-  cursor:pointer;
-  box-shadow:0 0 30px #ff3d9a;
-  transition:.3s;
-}
-
-button:hover{
-  transform:scale(1.12);
-  box-shadow:0 0 60px #ff3d9a;
-}
-
-.photo{
-  width:min(330px,85vw);
-  height:430px;
-  object-fit:cover;
-  border-radius:30px;
-  border:5px solid rgba(255,255,255,.5);
-  box-shadow:
-    0 0 25px #ff4da6,
-    0 0 70px rgba(255,45,150,.4);
-  margin:25px auto;
-  display:block;
-  animation:photoGlow 3s infinite alternate;
-}
-
-@keyframes photoGlow{
-  from{transform:rotate(-2deg) scale(1)}
-  to{transform:rotate(2deg) scale(1.03)}
-}
-
-.message{
-  max-width:750px;
-  margin:auto;
-  font-size:20px;
-  line-height:1.9;
-  color:#ffe5f3;
-}
-
-.highlight{
-  color:#ff76bd;
-  font-weight:bold;
-}
-
-.heart{
-  position:fixed;
-  bottom:-30px;
-  font-size:25px;
-  animation:rise linear forwards;
-  pointer-events:none;
-  z-index:5;
-}
-
-@keyframes rise{
-  to{
-    transform:translateY(-110vh) rotate(360deg);
-    opacity:0;
-  }
-}
-
-.hidden{
-  display:none;
-}
-
-#sorry{
-  font-size:clamp(30px,6vw,65px);
-  color:#ff8ac9;
-  margin-bottom:20px;
-}
-
-footer{
-  padding:30px;
-  text-align:center;
-  color:#aaa;
-}
-</style>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="bg"></div>
-<canvas id="stars"></canvas>
+  <!-- Background -->
+  <div class="noise"></div>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
 
-<section>
-  <div class="card">
-    <div style="font-size:60px">🥺❤️</div>
+  <!-- Navigation -->
+  <header class="navbar">
 
-    <h1>Soumii</h1>
+    <a href="index.html" class="logo">
+      EREMIKA <span>FOREVER</span>
+    </a>
 
-    <p class="subtitle">
-      This little website is only for the girl<br>
-      who means the world to me.
-    </p>
-
-    <button onclick="startLove()">
-      Open My Heart 💌
-    </button>
-  </div>
-</section>
-
-<section id="story">
-  <div class="card">
-
-    <div id="sorry">I'm Sorry, Soumii 🥺</div>
-
-    <p class="message">
-      Mujhse galti ho gayi...
-      aur main dil se <span class="highlight">SORRY</span> bolna chahta hoon. ❤️
-      <br><br>
-
-      Shayad ek simple “sorry” meri mistake ko undo nahi kar sakta,
-      lekin main chahta hoon ki tum ye samjho ki
-      <span class="highlight">tum mere liye kitni special ho.</span>
-      <br><br>
-
-      Tum sirf meri girlfriend nahi ho...
-      tum meri smile ka reason,
-      meri favourite notification,
-      meri favourite person,
-      aur meri life ka woh beautiful part ho
-      jise main kabhi khona nahi chahta. 🫶
-      <br><br>
-
-      <span class="highlight">
-      Duniya ki sabse cute girlfriend ka award agar exist karta,
-      toh meri vote hamesha tumhare naam hoti. 🌸
-      </span>
-    </p>
-
-    <br>
-
-    <button onclick="showPhoto()">
-      Ek Aur Surprise Hai 👀
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+      <span></span>
+      <span></span>
     </button>
 
-    <div id="photoBox" class="hidden">
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html" class="active">Home</a>
+      <a href="diary.html">Diary</a>
+      <a href="memories.html">Memories</a>
+      <a href="games.html">Games</a>
+      <a href="story.html">Our Story</a>
+    </nav>
 
-      <img src="soumii.jpg" class="photo"
-           alt="Soumii ❤️">
+  </header>
 
-      <p class="message">
-        Dekho... ye smile mujhe bahut pasand hai. 🥹❤️
-        <br><br>
-        Please zyada der tak gussa mat rehna.
-        <br>
-        <b>I really, really love you, Soumii. ❤️</b>
+
+  <!-- HERO -->
+  <main>
+
+    <section class="hero">
+
+      <div class="hero-content">
+
+        <p class="eyebrow reveal">
+          A PRIVATE ARCHIVE OF US
+        </p>
+
+        <h1 class="hero-title reveal">
+          EREMIKA
+          <em>FOREVER</em>
+        </h1>
+
+        <p class="hero-description reveal">
+          Our little corner of the internet —
+          where ordinary days become memories
+          worth keeping forever.
+        </p>
+
+        <div class="hero-actions reveal">
+
+          <a href="diary.html" class="btn btn-primary">
+            Open Our Diary
+            <span>↗</span>
+          </a>
+
+          <a href="#latest" class="btn btn-ghost">
+            Explore
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- Decorative Orb -->
+      <div class="hero-orb">
+        <div class="orb-ring ring-one"></div>
+        <div class="orb-ring ring-two"></div>
+        <div class="orb-core">
+          <span>∞</span>
+        </div>
+      </div>
+
+
+      <div class="scroll-indicator">
+        <span>SCROLL TO EXPLORE</span>
+        <div class="scroll-line"></div>
+      </div>
+
+    </section>
+
+
+    <!-- INTRO -->
+    <section class="intro section">
+
+      <div class="section-label">
+        <span>01</span>
+        <span>THE IDEA</span>
+      </div>
+
+      <div class="intro-grid">
+
+        <h2>
+          Not every day
+          needs to be
+          <em>extraordinary.</em>
+        </h2>
+
+        <div class="intro-text">
+
+          <p>
+            Sometimes it's just a random conversation,
+            a late-night game, a funny screenshot,
+            or a moment that makes you smile.
+          </p>
+
+          <p>
+            This is where we keep those little things.
+            The things that might look small today,
+            but could mean everything someday.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- STATS -->
+    <section class="stats section">
+
+      <div class="stat">
+        <strong id="memoryCount">00</strong>
+        <span>MEMORIES</span>
+      </div>
+
+      <div class="stat">
+        <strong id="gameCount">00</strong>
+        <span>GAME NIGHTS</span>
+      </div>
+
+      <div class="stat">
+        <strong id="dayCount">00</strong>
+        <span>DAYS</span>
+      </div>
+
+    </section>
+
+
+    <!-- LATEST MEMORY -->
+    <section class="latest section" id="latest">
+
+      <div class="section-label">
+        <span>02</span>
+        <span>LATEST MEMORY</span>
+      </div>
+
+      <div class="latest-card">
+
+        <div class="latest-image">
+
+          <div class="image-placeholder">
+            <span>OUR LATEST MOMENT</span>
+            <small>Add your first photo in /images/</small>
+          </div>
+
+        </div>
+
+        <div class="latest-info">
+
+          <p class="date">
+            YOUR LATEST ENTRY
+          </p>
+
+          <h2>
+            The little moments
+            <em>matter.</em>
+          </h2>
+
+          <p>
+            Your latest diary entry will appear here.
+            Add your memories, photos and little stories
+            as the days go by.
+          </p>
+
+          <a href="diary.html" class="text-link">
+            View the diary
+            <span>→</span>
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- MEMORY PHILOSOPHY -->
+    <section class="quote-section section">
+
+      <div class="quote-mark">“</div>
+
+      <blockquote>
+        One day, these ordinary moments
+        will be the memories
+        we wish we could live again.
+      </blockquote>
+
+      <p>
+        — EREMIKA FOREVER
       </p>
 
-      <br>
+    </section>
 
-      <button onclick="forgive()">
-        Forgive Me? 🥺❤️
-      </button>
 
+    <!-- NAVIGATION CARDS -->
+    <section class="explore section">
+
+      <div class="section-label">
+        <span>03</span>
+        <span>EXPLORE OUR WORLD</span>
+      </div>
+
+      <div class="explore-grid">
+
+        <a href="diary.html" class="explore-card">
+          <span class="card-number">01</span>
+          <div>
+            <h3>Daily Diary</h3>
+            <p>
+              Little things that happened today.
+            </p>
+          </div>
+          <span class="arrow">↗</span>
+        </a>
+
+
+        <a href="memories.html" class="explore-card">
+          <span class="card-number">02</span>
+          <div>
+            <h3>Memories</h3>
+            <p>
+              Photos and moments worth saving.
+            </p>
+          </div>
+          <span class="arrow">↗</span>
+        </a>
+
+
+        <a href="games.html" class="explore-card">
+          <span class="card-number">03</span>
+          <div>
+            <h3>Game Nights</h3>
+            <p>
+              Every win, loss and chaotic match.
+            </p>
+          </div>
+          <span class="arrow">↗</span>
+        </a>
+
+
+        <a href="story.html" class="explore-card">
+          <span class="card-number">04</span>
+          <div>
+            <h3>Our Story</h3>
+            <p>
+              The timeline of our little universe.
+            </p>
+          </div>
+          <span class="arrow">↗</span>
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- FINAL -->
+    <section class="final-section section">
+
+      <div class="final-content">
+
+        <p class="eyebrow">
+          KEEP ADDING TO IT
+        </p>
+
+        <h2>
+          This diary has
+          <em>just begun.</em>
+        </h2>
+
+        <p>
+          Tomorrow will bring another moment.
+          Save it here.
+        </p>
+
+        <a href="diary.html" class="btn btn-primary">
+          Write Today's Memory
+          <span>↗</span>
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <div class="footer-logo">
+      EREMIKA <span>FOREVER</span>
     </div>
 
-    <div id="final" class="hidden">
-      <br><br>
-      <h2 style="font-size:45px;color:#ff8ac9">
-        YAYYYYY! 🥹❤️
-      </h2>
-      <p class="message">
-        Thank you, meri Soumii. 🌸
-        <br><br>
-        Ab ek promise...
-        next time tumhe hurt karne se pehle
-        main 100 baar sochunga. ❤️
-      </p>
+    <p>
+      Made for the moments we never want to forget.
+    </p>
+
+    <div class="footer-bottom">
+      <span>© 2026</span>
+      <span>OURS, FOREVER.</span>
     </div>
 
-  </div>
-</section>
+  </footer>
 
-<footer>
-  Made with ❤️ only for Soumii
-</footer>
 
-<script>
-const canvas=document.getElementById("stars");
-const ctx=canvas.getContext("2d");
-
-function resize(){
-  canvas.width=innerWidth;
-  canvas.height=innerHeight;
-}
-resize();
-addEventListener("resize",resize);
-
-let stars=[];
-
-for(let i=0;i<160;i++){
-  stars.push({
-    x:Math.random()*innerWidth,
-    y:Math.random()*innerHeight,
-    r:Math.random()*2,
-    s:Math.random()*.6+.2
-  });
-}
-
-function animateStars(){
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-
-  stars.forEach(s=>{
-    ctx.beginPath();
-    ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
-    ctx.fillStyle="rgba(255,180,225,.8)";
-    ctx.fill();
-
-    s.y-=s.s;
-
-    if(s.y<0){
-      s.y=innerHeight;
-      s.x=Math.random()*innerWidth;
-    }
-  });
-
-  requestAnimationFrame(animateStars);
-}
-
-animateStars();
-
-function heart(){
-  const h=document.createElement("div");
-  h.className="heart";
-  h.innerHTML=["❤️","💗","💕","💖","💘","🌸"][Math.floor(Math.random()*6)];
-
-  h.style.left=Math.random()*100+"vw";
-  h.style.animationDuration=(3+Math.random()*4)+"s";
-
-  document.body.appendChild(h);
-
-  setTimeout(()=>h.remove(),7000);
-}
-
-setInterval(heart,250);
-
-function startLove(){
-  document.getElementById("story")
-    .scrollIntoView({behavior:"smooth"});
-
-  for(let i=0;i<25;i++){
-    setTimeout(heart,i*80);
-  }
-}
-
-function showPhoto(){
-  document.getElementById("photoBox")
-    .classList.remove("hidden");
-
-  document.getElementById("photoBox")
-    .scrollIntoView({behavior:"smooth"});
-
-  for(let i=0;i<40;i++){
-    setTimeout(heart,i*60);
-  }
-}
-
-function forgive(){
-  document.getElementById("final")
-    .classList.remove("hidden");
-
-  for(let i=0;i<100;i++){
-    setTimeout(heart,i*30);
-  }
-
-  alert("Soumii ❤️ Thank you for forgiving me!");
-}
-</script>
+  <!-- Scripts -->
+  <script src="script.js"></script>
 
 </body>
 </html>
