@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Soumii ❤️</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial, sans-serif;
+  background:#090014;
+  color:white;
+  overflow-x:hidden;
+}
+
+canvas{
+  position:fixed;
+  inset:0;
+  z-index:-2;
+}
+
+.bg{
+  position:fixed;
+  inset:0;
+  background:
+    radial-gradient(circle at 20% 20%,#ff2f92 0,transparent 25%),
+    radial-gradient(circle at 80% 70%,#7b2cff 0,transparent 30%),
+    linear-gradient(135deg,#090014,#160021,#05000b);
+  z-index:-3;
+}
+
+section{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:40px 20px;
+}
+
+.card{
+  width:min(900px,95%);
+  padding:55px 30px;
+  border-radius:35px;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.2);
+  box-shadow:0 0 60px rgba(255,45,145,.25);
+  backdrop-filter:blur(18px);
+  animation:float 5s ease-in-out infinite;
+}
+
+@keyframes float{
+  50%{transform:translateY(-12px)}
+}
+
+h1{
+  font-size:clamp(45px,9vw,100px);
+  background:linear-gradient(90deg,#fff,#ff75bb,#fff);
+  -webkit-background-clip:text;
+  color:transparent;
+  animation:shine 3s linear infinite;
+}
+
+@keyframes shine{
+  to{filter:hue-rotate(360deg)}
+}
+
+.subtitle{
+  margin:20px auto;
+  font-size:clamp(18px,3vw,28px);
+  color:#ffd5ec;
+}
+
+button{
+  border:0;
+  padding:18px 35px;
+  border-radius:50px;
+  background:linear-gradient(135deg,#ff3d9a,#a82cff);
+  color:white;
+  font-size:18px;
+  font-weight:bold;
+  cursor:pointer;
+  box-shadow:0 0 30px #ff3d9a;
+  transition:.3s;
+}
+
+button:hover{
+  transform:scale(1.12);
+  box-shadow:0 0 60px #ff3d9a;
+}
+
+.photo{
+  width:min(330px,85vw);
+  height:430px;
+  object-fit:cover;
+  border-radius:30px;
+  border:5px solid rgba(255,255,255,.5);
+  box-shadow:
+    0 0 25px #ff4da6,
+    0 0 70px rgba(255,45,150,.4);
+  margin:25px auto;
+  display:block;
+  animation:photoGlow 3s infinite alternate;
+}
+
+@keyframes photoGlow{
+  from{transform:rotate(-2deg) scale(1)}
+  to{transform:rotate(2deg) scale(1.03)}
+}
+
+.message{
+  max-width:750px;
+  margin:auto;
+  font-size:20px;
+  line-height:1.9;
+  color:#ffe5f3;
+}
+
+.highlight{
+  color:#ff76bd;
+  font-weight:bold;
+}
+
+.heart{
+  position:fixed;
+  bottom:-30px;
+  font-size:25px;
+  animation:rise linear forwards;
+  pointer-events:none;
+  z-index:5;
+}
+
+@keyframes rise{
+  to{
+    transform:translateY(-110vh) rotate(360deg);
+    opacity:0;
+  }
+}
+
+.hidden{
+  display:none;
+}
+
+#sorry{
+  font-size:clamp(30px,6vw,65px);
+  color:#ff8ac9;
+  margin-bottom:20px;
+}
+
+footer{
+  padding:30px;
+  text-align:center;
+  color:#aaa;
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg"></div>
+<canvas id="stars"></canvas>
+
+<section>
+  <div class="card">
+    <div style="font-size:60px">🥺❤️</div>
+
+    <h1>Soumii</h1>
+
+    <p class="subtitle">
+      This little website is only for the girl<br>
+      who means the world to me.
+    </p>
+
+    <button onclick="startLove()">
+      Open My Heart 💌
+    </button>
+  </div>
+</section>
+
+<section id="story">
+  <div class="card">
+
+    <div id="sorry">I'm Sorry, Soumii 🥺</div>
+
+    <p class="message">
+      Mujhse galti ho gayi...
+      aur main dil se <span class="highlight">SORRY</span> bolna chahta hoon. ❤️
+      <br><br>
+
+      Shayad ek simple “sorry” meri mistake ko undo nahi kar sakta,
+      lekin main chahta hoon ki tum ye samjho ki
+      <span class="highlight">tum mere liye kitni special ho.</span>
+      <br><br>
+
+      Tum sirf meri girlfriend nahi ho...
+      tum meri smile ka reason,
+      meri favourite notification,
+      meri favourite person,
+      aur meri life ka woh beautiful part ho
+      jise main kabhi khona nahi chahta. 🫶
+      <br><br>
+
+      <span class="highlight">
+      Duniya ki sabse cute girlfriend ka award agar exist karta,
+      toh meri vote hamesha tumhare naam hoti. 🌸
+      </span>
+    </p>
+
+    <br>
+
+    <button onclick="showPhoto()">
+      Ek Aur Surprise Hai 👀
+    </button>
+
+    <div id="photoBox" class="hidden">
+
+      <img src="soumii.jpg" class="photo"
+           alt="Soumii ❤️">
+
+      <p class="message">
+        Dekho... ye smile mujhe bahut pasand hai. 🥹❤️
+        <br><br>
+        Please zyada der tak gussa mat rehna.
+        <br>
+        <b>I really, really love you, Soumii. ❤️</b>
+      </p>
+
+      <br>
+
+      <button onclick="forgive()">
+        Forgive Me? 🥺❤️
+      </button>
+
+    </div>
+
+    <div id="final" class="hidden">
+      <br><br>
+      <h2 style="font-size:45px;color:#ff8ac9">
+        YAYYYYY! 🥹❤️
+      </h2>
+      <p class="message">
+        Thank you, meri Soumii. 🌸
+        <br><br>
+        Ab ek promise...
+        next time tumhe hurt karne se pehle
+        main 100 baar sochunga. ❤️
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  Made with ❤️ only for Soumii
+</footer>
+
+<script>
+const canvas=document.getElementById("stars");
+const ctx=canvas.getContext("2d");
+
+function resize(){
+  canvas.width=innerWidth;
+  canvas.height=innerHeight;
+}
+resize();
+addEventListener("resize",resize);
+
+let stars=[];
+
+for(let i=0;i<160;i++){
+  stars.push({
+    x:Math.random()*innerWidth,
+    y:Math.random()*innerHeight,
+    r:Math.random()*2,
+    s:Math.random()*.6+.2
+  });
+}
+
+function animateStars(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+
+  stars.forEach(s=>{
+    ctx.beginPath();
+    ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+    ctx.fillStyle="rgba(255,180,225,.8)";
+    ctx.fill();
+
+    s.y-=s.s;
+
+    if(s.y<0){
+      s.y=innerHeight;
+      s.x=Math.random()*innerWidth;
+    }
+  });
+
+  requestAnimationFrame(animateStars);
+}
+
+animateStars();
+
+function heart(){
+  const h=document.createElement("div");
+  h.className="heart";
+  h.innerHTML=["❤️","💗","💕","💖","💘","🌸"][Math.floor(Math.random()*6)];
+
+  h.style.left=Math.random()*100+"vw";
+  h.style.animationDuration=(3+Math.random()*4)+"s";
+
+  document.body.appendChild(h);
+
+  setTimeout(()=>h.remove(),7000);
+}
+
+setInterval(heart,250);
+
+function startLove(){
+  document.getElementById("story")
+    .scrollIntoView({behavior:"smooth"});
+
+  for(let i=0;i<25;i++){
+    setTimeout(heart,i*80);
+  }
+}
+
+function showPhoto(){
+  document.getElementById("photoBox")
+    .classList.remove("hidden");
+
+  document.getElementById("photoBox")
+    .scrollIntoView({behavior:"smooth"});
+
+  for(let i=0;i<40;i++){
+    setTimeout(heart,i*60);
+  }
+}
+
+function forgive(){
+  document.getElementById("final")
+    .classList.remove("hidden");
+
+  for(let i=0;i<100;i++){
+    setTimeout(heart,i*30);
+  }
+
+  alert("Soumii ❤️ Thank you for forgiving me!");
+}
+</script>
+
+</body>
+</html>
