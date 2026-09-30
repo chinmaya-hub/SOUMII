@@ -4,468 +4,170 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Game Moments — Eremika Forever</title>
+    <title>Game Moments ❤️</title>
 
     <link rel="stylesheet" href="style.css">
-
-    <style>
-        /* ================================
-           GAMES / PHOTO ARCHIVE PAGE
-        ================================= */
-
-        .games-page {
-            min-height: 100vh;
-            padding: 140px 7% 80px;
-        }
-
-        .games-hero {
-            max-width: 900px;
-            margin: 0 auto 70px;
-            text-align: center;
-        }
-
-        .games-hero h1 {
-            font-family: "Playfair Display", serif;
-            font-size: clamp(3rem, 7vw, 6rem);
-            font-weight: 500;
-            line-height: 1;
-            margin: 15px 0 25px;
-        }
-
-        .games-hero p {
-            max-width: 600px;
-            margin: auto;
-            opacity: 0.7;
-            line-height: 1.8;
-            font-size: 1rem;
-        }
-
-        .games-label {
-            color: #c98b91;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-size: 0.75rem;
-        }
-
-        /* Gallery */
-
-        .games-gallery {
-            max-width: 1200px;
-            margin: auto;
-            columns: 3 280px;
-            column-gap: 22px;
-        }
-
-        .game-memory {
-            position: relative;
-            break-inside: avoid;
-            margin-bottom: 22px;
-            overflow: hidden;
-            border-radius: 14px;
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.08);
-            cursor: pointer;
-        }
-
-        .game-memory img {
-            display: block;
-            width: 100%;
-            height: auto;
-            transition: transform 0.6s cubic-bezier(.2,.8,.2,1);
-        }
-
-        .game-memory:hover img {
-            transform: scale(1.05);
-        }
-
-        .game-overlay {
-            position: absolute;
-            inset: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 25px;
-            background: linear-gradient(
-                to top,
-                rgba(0,0,0,0.85),
-                rgba(0,0,0,0.05)
-            );
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-
-        .game-memory:hover .game-overlay {
-            opacity: 1;
-        }
-
-        .game-overlay h3 {
-            margin: 0 0 6px;
-            font-family: "Playfair Display", serif;
-            font-size: 1.4rem;
-            font-weight: 500;
-        }
-
-        .game-overlay span {
-            font-size: 0.75rem;
-            opacity: 0.65;
-            letter-spacing: 1px;
-        }
-
-        .games-note {
-            max-width: 600px;
-            margin: 70px auto 0;
-            text-align: center;
-            opacity: 0.55;
-            font-size: 0.9rem;
-            line-height: 1.7;
-        }
-
-        /* Lightbox */
-
-        .game-lightbox {
-            position: fixed;
-            inset: 0;
-            z-index: 9999;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            padding: 30px;
-
-            background: rgba(8, 7, 10, 0.94);
-            backdrop-filter: blur(12px);
-
-            opacity: 0;
-            visibility: hidden;
-
-            transition: opacity 0.3s ease,
-                        visibility 0.3s ease;
-        }
-
-        .game-lightbox.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .game-lightbox img {
-            max-width: 90vw;
-            max-height: 85vh;
-            object-fit: contain;
-            border-radius: 10px;
-            box-shadow: 0 30px 100px rgba(0,0,0,0.6);
-        }
-
-        .lightbox-close {
-            position: absolute;
-            top: 25px;
-            right: 30px;
-
-            width: 45px;
-            height: 45px;
-
-            border: 1px solid rgba(255,255,255,0.15);
-            border-radius: 50%;
-
-            background: rgba(255,255,255,0.05);
-            color: white;
-
-            font-size: 25px;
-            cursor: pointer;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        @media (max-width: 700px) {
-            .games-page {
-                padding: 120px 5% 60px;
-            }
-
-            .games-gallery {
-                columns: 2 160px;
-                column-gap: 12px;
-            }
-
-            .game-memory {
-                margin-bottom: 12px;
-            }
-
-            .game-overlay {
-                padding: 15px;
-            }
-
-            .game-overlay h3 {
-                font-size: 1rem;
-            }
-        }
-
-        @media (max-width: 430px) {
-            .games-gallery {
-                columns: 1;
-            }
-        }
-    </style>
 </head>
 
 <body>
 
-    <!-- ================================
-         NAVIGATION
-    ================================= -->
-
+    <!-- Navigation -->
     <header class="navbar">
 
-        <div class="nav-logo">
-            EREMIKA
-        </div>
+        <a href="index.html" class="logo">
+            Our Little World ❤️
+        </a>
 
-        <button class="menu-toggle" id="menuToggle">
-            ☰
-        </button>
-
-        <nav class="nav-links" id="navLinks">
+        <nav>
             <a href="index.html">Home</a>
-            <a href="diary.html">Diary</a>
-            <a href="memories.html">Memories</a>
-            <a href="games.html" class="active">Games</a>
-            <a href="story.html">Our Story</a>
+            <a href="games.html" class="active">Game Moments</a>
+            <a href="chats.html">Chat Moments</a>
+            <a href="photos.html">Photos</a>
         </nav>
 
     </header>
 
 
-    <!-- ================================
-         MAIN
-    ================================= -->
+    <main class="page">
 
-    <main class="games-page">
+        <section class="page-heading">
 
-        <section class="games-hero">
+            <p class="small-title">OUR MEMORIES</p>
 
-            <span class="games-label">
-                Our little archive
-            </span>
-
-            <h1>
-                Game Moments.
-            </h1>
+            <h1>Game Moments 🎮</h1>
 
             <p>
-                Little moments, random memories,
-                and pictures that deserve a place here.
-                More will be added as our story continues.
+                Little gaming moments that became beautiful memories.
             </p>
 
         </section>
 
 
-        <!-- ================================
-             PHOTO GALLERY
-        ================================= -->
+        <section class="gallery">
 
-        <section class="games-gallery">
 
-            <!-- PHOTO 1 -->
+            <!-- Game Photo 1 -->
+            <article class="memory-item">
 
-            <article
-                class="game-memory"
-                data-title="A Little Moment"
-                data-date="Memory 01"
-                data-image="game pic 1.jpg"
-            >
+                <div class="image-container">
 
-                <img
-                    src="game pic 1.jpg"
-                    alt="Game memory 1"
-                    loading="lazy"
-                >
+                    <img
+                        src="game pic 1.jpg"
+                        alt="Game Moment 1"
+                        onclick="openLightbox(this.src, this.alt)"
+                    >
 
-                <div class="game-overlay">
+                    <button
+                        class="view-button"
+                        onclick="openLightbox('game pic 1.jpg', 'Game Moment 1')"
+                    >
+                        View Fullscreen
+                    </button>
 
-                    <h3>
-                        A Little Moment
-                    </h3>
+                </div>
 
-                    <span>
-                        Memory 01
+                <div class="memory-info">
+
+                    <span class="memory-label">
+                        GAME MOMENT
                     </span>
+
+                    <h2>Our First Game Moment</h2>
+
+                    <p>
+                        One more little memory to keep forever. ❤️
+                    </p>
 
                 </div>
 
             </article>
 
 
-            <!-- PHOTO 2 -->
+            <!-- Game Photo 2 -->
+            <article class="memory-item">
 
-            <article
-                class="game-memory"
-                data-title="Another Memory"
-                data-date="Memory 02"
-                data-image="game pic 2.jpg"
-            >
+                <div class="image-container">
 
-                <img
-                    src="game pic 2.jpg"
-                    alt="Game memory 2"
-                    loading="lazy"
-                >
+                    <img
+                        src="game pic 2.jpg"
+                        alt="Game Moment 2"
+                        onclick="openLightbox(this.src, this.alt)"
+                    >
 
-                <div class="game-overlay">
+                    <button
+                        class="view-button"
+                        onclick="openLightbox('game pic 2.jpg', 'Game Moment 2')"
+                    >
+                        View Fullscreen
+                    </button>
 
-                    <h3>
-                        Another Memory
-                    </h3>
+                </div>
 
-                    <span>
-                        Memory 02
+                <div class="memory-info">
+
+                    <span class="memory-label">
+                        GAME MOMENT
                     </span>
+
+                    <h2>Another Little Moment</h2>
+
+                    <p>
+                        Just us having fun together. 🎮❤️
+                    </p>
 
                 </div>
 
             </article>
 
 
-            <!-- PHOTO 3 -->
+            <!-- Game Photo 3 -->
+            <article class="memory-item">
 
-            <article
-                class="game-memory"
-                data-title="One More For Us"
-                data-date="Memory 03"
-                data-image="game pic 3.png"
-            >
+                <div class="image-container">
 
-                <img
-                    src="game pic 3.png"
-                    alt="Game memory 3"
-                    loading="lazy"
-                >
+                    <img
+                        src="game pic 3.png"
+                        alt="Game Moment 3"
+                        onclick="openLightbox(this.src, this.alt)"
+                    >
 
-                <div class="game-overlay">
+                    <button
+                        class="view-button"
+                        onclick="openLightbox('game pic 3.png', 'Game Moment 3')"
+                    >
+                        View Fullscreen
+                    </button>
 
-                    <h3>
-                        One More For Us
-                    </h3>
+                </div>
 
-                    <span>
-                        Memory 03
+                <div class="memory-info">
+
+                    <span class="memory-label">
+                        GAME MOMENT
                     </span>
+
+                    <h2>A Memory Worth Keeping</h2>
+
+                    <p>
+                        Some moments are small, but they stay with us. ❤️
+                    </p>
 
                 </div>
 
             </article>
+
 
         </section>
-
-
-        <div class="games-note">
-
-            More little moments will be added here.
-            Every new picture becomes another tiny part
-            of our story. ♡
-
-        </div>
 
     </main>
 
 
-    <!-- ================================
-         LIGHTBOX
-    ================================= -->
+    <footer>
+        Made with ❤️ for our little world.
+    </footer>
 
-    <div class="game-lightbox" id="gameLightbox">
-
-        <button
-            class="lightbox-close"
-            id="lightboxClose"
-            aria-label="Close"
-        >
-            ×
-        </button>
-
-        <img
-            id="lightboxImage"
-            src=""
-            alt="Full size memory"
-        >
-
-    </div>
-
-
-    <!-- Existing JavaScript -->
 
     <script src="script.js"></script>
-
-
-    <!-- Games Page JavaScript -->
-
-    <script>
-
-        const gameMemories =
-            document.querySelectorAll(".game-memory");
-
-        const gameLightbox =
-            document.getElementById("gameLightbox");
-
-        const lightboxImage =
-            document.getElementById("lightboxImage");
-
-        const lightboxClose =
-            document.getElementById("lightboxClose");
-
-
-        gameMemories.forEach(memory => {
-
-            memory.addEventListener("click", () => {
-
-                const image =
-                    memory.getAttribute("data-image");
-
-                lightboxImage.src = image;
-
-                gameLightbox.classList.add("active");
-
-                document.body.style.overflow = "hidden";
-
-            });
-
-        });
-
-
-        lightboxClose.addEventListener(
-            "click",
-            closeLightbox
-        );
-
-
-        gameLightbox.addEventListener("click", (event) => {
-
-            if (event.target === gameLightbox) {
-                closeLightbox();
-            }
-
-        });
-
-
-        document.addEventListener("keydown", (event) => {
-
-            if (event.key === "Escape") {
-                closeLightbox();
-            }
-
-        });
-
-
-        function closeLightbox() {
-
-            gameLightbox.classList.remove("active");
-
-            document.body.style.overflow = "";
-
-        }
-
-    </script>
 
 </body>
 </html>
