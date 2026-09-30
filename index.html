@@ -1,351 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Little World ❤️</title>
 
-  <title>EREMIKA FOREVER</title>
-
-  <meta
-    name="description"
-    content="A private little diary of our everyday moments, memories and stories."
-  >
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap"
-    rel="stylesheet"
-  >
-
-  <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <!-- Background -->
-  <div class="noise"></div>
-  <div class="ambient ambient-one"></div>
-  <div class="ambient ambient-two"></div>
+    <!-- Navigation -->
+    <header class="navbar">
+        <a href="index.html" class="logo">Our Little World ❤️</a>
 
-  <!-- Navigation -->
-  <header class="navbar">
+        <nav>
+            <a href="index.html" class="active">Home</a>
+            <a href="games.html">Game Moments</a>
+            <a href="chats.html">Chat Moments</a>
+            <a href="photos.html">Photos</a>
+        </nav>
+    </header>
 
-    <a href="index.html" class="logo">
-      EREMIKA <span>FOREVER</span>
-    </a>
 
-    <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
-      <span></span>
-      <span></span>
-    </button>
+    <!-- Home -->
+    <main class="home">
 
-    <nav class="nav-links" id="navLinks">
-      <a href="index.html" class="active">Home</a>
-      <a href="diary.html">Diary</a>
-      <a href="memories.html">Memories</a>
-      <a href="games.html">Games</a>
-      <a href="story.html">Our Story</a>
-    </nav>
+        <section class="hero">
 
-  </header>
+            <div class="hero-content">
 
+                <p class="small-title">A LITTLE PLACE FOR US</p>
 
-  <!-- HERO -->
-  <main>
+                <h1>
+                    Our Little<br>
+                    <span>Love Story</span> ❤️
+                </h1>
 
-    <section class="hero">
+                <p class="hero-text">
+                    A small collection of our memories, little moments,
+                    silly conversations and beautiful memories that
+                    deserve to stay forever.
+                </p>
 
-      <div class="hero-content">
+                <div class="home-buttons">
+                    <a href="photos.html" class="main-button">
+                        Explore Our Memories
+                    </a>
 
-        <p class="eyebrow reveal">
-          A PRIVATE ARCHIVE OF US
-        </p>
+                    <a href="games.html" class="secondary-button">
+                        Game Moments 🎮
+                    </a>
+                </div>
 
-        <h1 class="hero-title reveal">
-          EREMIKA
-          <em>FOREVER</em>
-        </h1>
+            </div>
 
-        <p class="hero-description reveal">
-          Our little corner of the internet —
-          where ordinary days become memories
-          worth keeping forever.
-        </p>
+            <div class="hero-photo">
+                <div class="photo-frame">
+                    <img src="soumii.jpg" alt="Our Memory"
+                         onclick="openLightbox(this.src, this.alt)">
+                </div>
+            </div>
 
-        <div class="hero-actions reveal">
+        </section>
 
-          <a href="diary.html" class="btn btn-primary">
-            Open Our Diary
-            <span>↗</span>
-          </a>
 
-          <a href="#latest" class="btn btn-ghost">
-            Explore
-          </a>
+        <!-- Sections -->
+        <section class="section-intro">
 
-        </div>
+            <p class="small-title">MEMORIES</p>
 
-      </div>
+            <h2>Little moments, big memories.</h2>
 
-
-      <!-- Decorative Orb -->
-      <div class="hero-orb">
-        <div class="orb-ring ring-one"></div>
-        <div class="orb-ring ring-two"></div>
-        <div class="orb-core">
-          <span>∞</span>
-        </div>
-      </div>
-
-
-      <div class="scroll-indicator">
-        <span>SCROLL TO EXPLORE</span>
-        <div class="scroll-line"></div>
-      </div>
-
-    </section>
-
-
-    <!-- INTRO -->
-    <section class="intro section">
-
-      <div class="section-label">
-        <span>01</span>
-        <span>THE IDEA</span>
-      </div>
-
-      <div class="intro-grid">
-
-        <h2>
-          Not every day
-          needs to be
-          <em>extraordinary.</em>
-        </h2>
-
-        <div class="intro-text">
-
-          <p>
-            Sometimes it's just a random conversation,
-            a late-night game, a funny screenshot,
-            or a moment that makes you smile.
-          </p>
-
-          <p>
-            This is where we keep those little things.
-            The things that might look small today,
-            but could mean everything someday.
-          </p>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- STATS -->
-    <section class="stats section">
-
-      <div class="stat">
-        <strong id="memoryCount">00</strong>
-        <span>MEMORIES</span>
-      </div>
-
-      <div class="stat">
-        <strong id="gameCount">00</strong>
-        <span>GAME NIGHTS</span>
-      </div>
-
-      <div class="stat">
-        <strong id="dayCount">00</strong>
-        <span>DAYS</span>
-      </div>
-
-    </section>
-
-
-    <!-- LATEST MEMORY -->
-    <section class="latest section" id="latest">
-
-      <div class="section-label">
-        <span>02</span>
-        <span>LATEST MEMORY</span>
-      </div>
-
-      <div class="latest-card">
-
-        <div class="latest-image">
-
-          <div class="image-placeholder">
-            <span>OUR LATEST MOMENT</span>
-            <small>Add your first photo in /images/</small>
-          </div>
-
-        </div>
-
-        <div class="latest-info">
-
-          <p class="date">
-            YOUR LATEST ENTRY
-          </p>
-
-          <h2>
-            The little moments
-            <em>matter.</em>
-          </h2>
-
-          <p>
-            Your latest diary entry will appear here.
-            Add your memories, photos and little stories
-            as the days go by.
-          </p>
-
-          <a href="diary.html" class="text-link">
-            View the diary
-            <span>→</span>
-          </a>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- MEMORY PHILOSOPHY -->
-    <section class="quote-section section">
-
-      <div class="quote-mark">“</div>
-
-      <blockquote>
-        One day, these ordinary moments
-        will be the memories
-        we wish we could live again.
-      </blockquote>
-
-      <p>
-        — EREMIKA FOREVER
-      </p>
-
-    </section>
-
-
-    <!-- NAVIGATION CARDS -->
-    <section class="explore section">
-
-      <div class="section-label">
-        <span>03</span>
-        <span>EXPLORE OUR WORLD</span>
-      </div>
-
-      <div class="explore-grid">
-
-        <a href="diary.html" class="explore-card">
-          <span class="card-number">01</span>
-          <div>
-            <h3>Daily Diary</h3>
             <p>
-              Little things that happened today.
+                Everything here is a little piece of our story.
             </p>
-          </div>
-          <span class="arrow">↗</span>
-        </a>
+
+        </section>
 
 
-        <a href="memories.html" class="explore-card">
-          <span class="card-number">02</span>
-          <div>
-            <h3>Memories</h3>
-            <p>
-              Photos and moments worth saving.
-            </p>
-          </div>
-          <span class="arrow">↗</span>
-        </a>
+        <section class="cards">
+
+            <a href="games.html" class="memory-card">
+                <div class="card-icon">🎮</div>
+                <h3>Game Moments</h3>
+                <p>
+                    Our fun gaming moments and memories.
+                </p>
+                <span>View moments →</span>
+            </a>
 
 
-        <a href="games.html" class="explore-card">
-          <span class="card-number">03</span>
-          <div>
-            <h3>Game Nights</h3>
-            <p>
-              Every win, loss and chaotic match.
-            </p>
-          </div>
-          <span class="arrow">↗</span>
-        </a>
+            <a href="chats.html" class="memory-card">
+                <div class="card-icon">💬</div>
+                <h3>Chat Moments</h3>
+                <p>
+                    Some conversations that are too special to forget.
+                </p>
+                <span>View moments →</span>
+            </a>
 
 
-        <a href="story.html" class="explore-card">
-          <span class="card-number">04</span>
-          <div>
-            <h3>Our Story</h3>
-            <p>
-              The timeline of our little universe.
-            </p>
-          </div>
-          <span class="arrow">↗</span>
-        </a>
+            <a href="photos.html" class="memory-card">
+                <div class="card-icon">📸</div>
+                <h3>Photos</h3>
+                <p>
+                    Our favourite photos and beautiful memories.
+                </p>
+                <span>View photos →</span>
+            </a>
 
-      </div>
+        </section>
 
-    </section>
+    </main>
 
 
-    <!-- FINAL -->
-    <section class="final-section section">
-
-      <div class="final-content">
-
-        <p class="eyebrow">
-          KEEP ADDING TO IT
-        </p>
-
-        <h2>
-          This diary has
-          <em>just begun.</em>
-        </h2>
-
-        <p>
-          Tomorrow will bring another moment.
-          Save it here.
-        </p>
-
-        <a href="diary.html" class="btn btn-primary">
-          Write Today's Memory
-          <span>↗</span>
-        </a>
-
-      </div>
-
-    </section>
-
-  </main>
+    <footer>
+        Made with ❤️ for our little world.
+    </footer>
 
 
-  <!-- FOOTER -->
-  <footer>
-
-    <div class="footer-logo">
-      EREMIKA <span>FOREVER</span>
-    </div>
-
-    <p>
-      Made for the moments we never want to forget.
-    </p>
-
-    <div class="footer-bottom">
-      <span>© 2026</span>
-      <span>OURS, FOREVER.</span>
-    </div>
-
-  </footer>
-
-
-  <!-- Scripts -->
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 
 </body>
 </html>
