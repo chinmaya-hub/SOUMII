@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Chat Moments ❤️</title>
 
@@ -15,7 +20,9 @@
 <body>
 
 
-    <!-- Navigation -->
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
 
     <header class="navbar">
 
@@ -23,11 +30,16 @@
             Our Little World ❤️
         </a>
 
+
         <nav>
 
-            <a href="index.html">Home</a>
+            <a href="index.html">
+                Home
+            </a>
 
-            <a href="games.html">Game Moments</a>
+            <a href="games.html">
+                Game Moments
+            </a>
 
             <a href="chats.html" class="active">
                 Chat Moments
@@ -43,6 +55,10 @@
 
 
 
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+
     <main class="page">
 
 
@@ -52,9 +68,11 @@
                 LITTLE CONVERSATIONS
             </p>
 
+
             <h1>
                 Chat Moments 💬
             </h1>
+
 
             <p>
                 Some conversations are too special to disappear.
@@ -64,27 +82,38 @@
 
 
 
+        <!-- =========================
+             CHAT MEMORY
+        ========================== -->
+
         <section class="single-memory">
 
 
             <article class="memory-item large-memory">
+
 
                 <div class="image-container">
 
                     <img
                         src="lovey dovey.png"
                         alt="Our Chat Moment"
-                        onclick="openLightbox(this.src, this.alt)"
+                        class="gallery-image"
+                        data-full-image="lovey dovey.png"
+                        data-title="Our Chat Moment"
                     >
 
+
                     <button
+                        type="button"
                         class="view-button"
-                        onclick="openLightbox('lovey dovey.png', 'Our Chat Moment')"
+                        data-full-image="lovey dovey.png"
+                        data-title="Our Chat Moment"
                     >
                         View Fullscreen
                     </button>
 
                 </div>
+
 
 
                 <div class="memory-info">
@@ -93,9 +122,11 @@
                         CHAT MOMENT
                     </span>
 
+
                     <h2>
                         A Little Lovey Dovey Moment ❤️
                     </h2>
+
 
                     <p>
                         One of those conversations that deserves
@@ -103,6 +134,7 @@
                     </p>
 
                 </div>
+
 
             </article>
 
@@ -114,13 +146,21 @@
 
 
 
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
     <footer>
         Made with ❤️ for our little world.
     </footer>
 
 
 
-    <script src="script.js"></script>
+    <!-- Force fresh JavaScript -->
+
+    <script src="script.js?v=2"></script>
+
 
 </body>
+
 </html>
