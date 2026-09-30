@@ -1,0 +1,1323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Daily Diary — EREMIKA FOREVER</title>
+
+  <meta
+    name="description"
+    content="Our daily diary — little moments, conversations, games and memories."
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+
+    /* =====================================================
+       DIARY PAGE
+       ===================================================== */
+
+    .diary-hero {
+      min-height: 72vh;
+
+      display: flex;
+      align-items: flex-end;
+
+      padding:
+        170px 7vw
+        90px;
+
+      border-bottom: 1px solid var(--border);
+
+      position: relative;
+
+      overflow: hidden;
+    }
+
+
+    .diary-hero::before {
+      content: "";
+
+      position: absolute;
+
+      width: 500px;
+      height: 500px;
+
+      right: -150px;
+      top: 100px;
+
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(201,120,120,.22),
+          transparent 68%
+        );
+
+      filter: blur(50px);
+    }
+
+
+    .diary-heading {
+      position: relative;
+      z-index: 2;
+
+      max-width: 1000px;
+    }
+
+
+    .diary-heading h1 {
+      font-family: var(--serif);
+
+      font-weight: 400;
+
+      font-size:
+        clamp(70px, 12vw, 165px);
+
+      line-height: .85;
+
+      letter-spacing: -.06em;
+    }
+
+
+    .diary-heading h1 em {
+      display: block;
+
+      padding-left: 10vw;
+
+      color: var(--rose-light);
+
+      font-style: italic;
+    }
+
+
+    .diary-heading p {
+      max-width: 500px;
+
+      margin-top: 40px;
+
+      color: var(--muted-light);
+
+      font-size: 16px;
+
+      line-height: 1.9;
+    }
+
+
+    /* =====================================================
+       DIARY CONTROLS
+       ===================================================== */
+
+    .diary-controls {
+      padding:
+        45px 7vw;
+
+      border-bottom: 1px solid var(--border);
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      gap: 30px;
+    }
+
+
+    .diary-filter {
+      display: flex;
+
+      align-items: center;
+
+      gap: 10px;
+    }
+
+
+    .filter-button {
+      border: 1px solid var(--border-light);
+
+      background: transparent;
+
+      color: var(--muted-light);
+
+      padding:
+        10px 17px;
+
+      border-radius: 100px;
+
+      cursor: pointer;
+
+      font-size: 10px;
+
+      letter-spacing: .13em;
+
+      text-transform: uppercase;
+
+      transition: .3s ease;
+    }
+
+
+    .filter-button:hover,
+    .filter-button.active {
+      background: var(--cream);
+
+      color: #171313;
+
+      border-color: var(--cream);
+    }
+
+
+    .diary-search {
+      width: 260px;
+
+      padding:
+        13px 18px;
+
+      border-radius: 100px;
+
+      border: 1px solid var(--border);
+
+      background: rgba(255,255,255,.03);
+
+      color: var(--cream);
+
+      outline: none;
+
+      font-family: var(--sans);
+
+      transition: .3s ease;
+    }
+
+
+    .diary-search::placeholder {
+      color: var(--muted);
+    }
+
+
+    .diary-search:focus {
+      border-color: var(--rose);
+    }
+
+
+    /* =====================================================
+       TIMELINE
+       ===================================================== */
+
+    .diary-container {
+      max-width: 1200px;
+
+      margin: auto;
+
+      padding:
+        120px 7vw;
+    }
+
+
+    .timeline {
+      position: relative;
+    }
+
+
+    .timeline::before {
+      content: "";
+
+      position: absolute;
+
+      top: 0;
+      bottom: 0;
+
+      left: 115px;
+
+      width: 1px;
+
+      background:
+        linear-gradient(
+          to bottom,
+          transparent,
+          var(--border-light) 5%,
+          var(--border-light) 95%,
+          transparent
+        );
+    }
+
+
+    /* =====================================================
+       ENTRY
+       ===================================================== */
+
+    .diary-entry {
+      position: relative;
+
+      display: grid;
+
+      grid-template-columns: 115px 1fr;
+
+      gap: 60px;
+
+      padding-bottom: 110px;
+    }
+
+
+    .entry-date {
+      text-align: right;
+
+      padding-top: 5px;
+
+      position: relative;
+    }
+
+
+    .entry-date .day {
+      display: block;
+
+      font-family: var(--serif);
+
+      font-size: 42px;
+
+      color: var(--cream);
+
+      line-height: 1;
+    }
+
+
+    .entry-date .month {
+      display: block;
+
+      margin-top: 8px;
+
+      color: var(--rose-light);
+
+      font-size: 9px;
+
+      letter-spacing: .18em;
+    }
+
+
+    .entry-dot {
+      position: absolute;
+
+      top: 5px;
+
+      right: -67px;
+
+      width: 14px;
+      height: 14px;
+
+      border-radius: 50%;
+
+      background: var(--bg);
+
+      border: 1px solid var(--rose-light);
+
+      box-shadow:
+        0 0 0 6px var(--bg),
+        0 0 20px rgba(230,163,160,.25);
+    }
+
+
+    /* =====================================================
+       ENTRY CARD
+       ===================================================== */
+
+    .entry-card {
+      border: 1px solid var(--border);
+
+      background: var(--card);
+
+      transition:
+        transform .5s var(--ease),
+        border .4s ease,
+        background .4s ease;
+    }
+
+
+    .entry-card:hover {
+      transform: translateY(-6px);
+
+      border-color: var(--border-light);
+
+      background: var(--card-hover);
+    }
+
+
+    .entry-image {
+      width: 100%;
+
+      aspect-ratio: 16 / 9;
+
+      overflow: hidden;
+
+      background:
+        linear-gradient(
+          135deg,
+          #241719,
+          #4b292d
+        );
+    }
+
+
+    .entry-image img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      transition:
+        transform 1s var(--ease);
+    }
+
+
+    .entry-card:hover .entry-image img {
+      transform: scale(1.04);
+    }
+
+
+    .entry-image-placeholder {
+      height: 100%;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      flex-direction: column;
+
+      color: rgba(255,255,255,.5);
+
+      font-family: var(--serif);
+
+      font-style: italic;
+
+      font-size: 25px;
+    }
+
+
+    .entry-image-placeholder small {
+      font-family: var(--sans);
+
+      font-style: normal;
+
+      margin-top: 10px;
+
+      font-size: 9px;
+
+      letter-spacing: .16em;
+
+      text-transform: uppercase;
+
+      color: var(--muted);
+    }
+
+
+    .entry-content {
+      padding: 42px;
+    }
+
+
+    .entry-meta {
+      display: flex;
+
+      align-items: center;
+
+      gap: 12px;
+
+      color: var(--rose-light);
+
+      font-size: 9px;
+
+      letter-spacing: .18em;
+
+      text-transform: uppercase;
+    }
+
+
+    .entry-meta .separator {
+      width: 4px;
+      height: 4px;
+
+      border-radius: 50%;
+
+      background: var(--rose);
+    }
+
+
+    .entry-content h2 {
+      margin-top: 20px;
+
+      font-family: var(--serif);
+
+      font-size: clamp(32px, 4vw, 55px);
+
+      line-height: 1.05;
+
+      font-weight: 400;
+
+      letter-spacing: -.035em;
+    }
+
+
+    .entry-content > p {
+      margin-top: 25px;
+
+      max-width: 700px;
+
+      color: var(--muted-light);
+
+      line-height: 1.9;
+
+      font-size: 15px;
+    }
+
+
+    /* =====================================================
+       ENTRY FOOTER
+       ===================================================== */
+
+    .entry-footer {
+      margin-top: 30px;
+
+      padding-top: 20px;
+
+      border-top: 1px solid var(--border);
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+    }
+
+
+    .tags {
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 7px;
+    }
+
+
+    .tag {
+      padding:
+        6px 10px;
+
+      border: 1px solid var(--border);
+
+      border-radius: 100px;
+
+      color: var(--muted);
+
+      font-size: 9px;
+
+      letter-spacing: .08em;
+    }
+
+
+    .entry-number {
+      color: var(--muted);
+
+      font-size: 9px;
+
+      letter-spacing: .15em;
+    }
+
+
+    /* =====================================================
+       EMPTY STATE
+       ===================================================== */
+
+    .empty-diary {
+      padding: 100px 20px;
+
+      text-align: center;
+
+      display: none;
+    }
+
+
+    .empty-diary h2 {
+      font-family: var(--serif);
+
+      font-size: 50px;
+
+      font-weight: 400;
+    }
+
+
+    .empty-diary p {
+      margin-top: 15px;
+
+      color: var(--muted);
+    }
+
+
+    /* =====================================================
+       MOBILE
+       ===================================================== */
+
+    @media (max-width: 800px) {
+
+      .diary-hero {
+        min-height: 65vh;
+
+        padding:
+          130px 6vw
+          70px;
+      }
+
+
+      .diary-heading h1 {
+        font-size: 70px;
+      }
+
+
+      .diary-heading h1 em {
+        padding-left: 5vw;
+      }
+
+
+      .diary-controls {
+        padding:
+          30px 6vw;
+
+        flex-direction: column;
+
+        align-items: stretch;
+      }
+
+
+      .diary-filter {
+        overflow-x: auto;
+
+        padding-bottom: 5px;
+      }
+
+
+      .diary-search {
+        width: 100%;
+      }
+
+
+      .diary-container {
+        padding:
+          80px 5vw;
+      }
+
+
+      .timeline::before {
+        left: 12px;
+      }
+
+
+      .diary-entry {
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+
+        padding-left: 35px;
+
+        padding-bottom: 70px;
+      }
+
+
+      .entry-date {
+        text-align: left;
+
+        padding: 0;
+      }
+
+
+      .entry-date .day {
+        font-size: 28px;
+
+        display: inline;
+      }
+
+
+      .entry-date .month {
+        display: inline;
+
+        margin-left: 8px;
+      }
+
+
+      .entry-dot {
+        left: -29px;
+
+        right: auto;
+
+        top: 2px;
+      }
+
+
+      .entry-content {
+        padding: 28px 22px;
+      }
+
+
+      .entry-content h2 {
+        font-size: 36px;
+      }
+
+
+      .entry-footer {
+        align-items: flex-start;
+
+        gap: 20px;
+
+        flex-direction: column;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+  <!-- Ambient background -->
+  <div class="noise"></div>
+
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+
+
+  <!-- =====================================================
+       NAVIGATION
+       ===================================================== -->
+
+  <header class="navbar">
+
+    <a href="index.html" class="logo">
+      EREMIKA <span>FOREVER</span>
+    </a>
+
+
+    <button
+      class="menu-toggle"
+      id="menuToggle"
+      aria-label="Open menu"
+    >
+      <span></span>
+      <span></span>
+    </button>
+
+
+    <nav class="nav-links" id="navLinks">
+
+      <a href="index.html">
+        Home
+      </a>
+
+      <a href="diary.html" class="active">
+        Diary
+      </a>
+
+      <a href="memories.html">
+        Memories
+      </a>
+
+      <a href="games.html">
+        Games
+      </a>
+
+      <a href="story.html">
+        Our Story
+      </a>
+
+    </nav>
+
+  </header>
+
+
+
+  <!-- =====================================================
+       HERO
+       ===================================================== -->
+
+  <main>
+
+    <section class="diary-hero">
+
+      <div class="diary-heading">
+
+        <p class="eyebrow reveal">
+          OUR DAILY ARCHIVE
+        </p>
+
+        <h1 class="reveal">
+          Every day
+          <em>has a story.</em>
+        </h1>
+
+        <p class="reveal">
+          A collection of little conversations,
+          random games, unexpected laughs,
+          photographs and moments that made
+          ordinary days feel a little different.
+        </p>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ===================================================
+         FILTERS
+         =================================================== -->
+
+    <section class="diary-controls">
+
+      <div class="diary-filter">
+
+        <button
+          class="filter-button active"
+          data-filter="all"
+        >
+          All
+        </button>
+
+        <button
+          class="filter-button"
+          data-filter="chat"
+        >
+          Chats
+        </button>
+
+        <button
+          class="filter-button"
+          data-filter="game"
+        >
+          Games
+        </button>
+
+        <button
+          class="filter-button"
+          data-filter="memory"
+        >
+          Memories
+        </button>
+
+      </div>
+
+
+      <input
+        type="search"
+        id="diarySearch"
+        class="diary-search"
+        placeholder="Search our diary..."
+      >
+
+    </section>
+
+
+
+    <!-- ===================================================
+         DIARY
+         =================================================== -->
+
+    <section class="diary-container">
+
+      <div class="timeline" id="diaryTimeline">
+
+
+        <!-- ===============================================
+             ENTRY 01
+             Replace this with your real memory later
+             =============================================== -->
+
+        <article
+          class="diary-entry"
+          data-type="game"
+          data-search="gaming game night fun"
+        >
+
+          <div class="entry-date">
+
+            <span class="day">
+              01
+            </span>
+
+            <span class="month">
+              OCT 2026
+            </span>
+
+            <span class="entry-dot"></span>
+
+          </div>
+
+
+          <div class="entry-card">
+
+            <div class="entry-image">
+
+              <div class="entry-image-placeholder">
+
+                Our first memory
+
+                <small>
+                  Add your image later
+                </small>
+
+              </div>
+
+            </div>
+
+
+            <div class="entry-content">
+
+              <div class="entry-meta">
+
+                <span>
+                  GAME NIGHT
+                </span>
+
+                <span class="separator"></span>
+
+                <span>
+                  11:48 PM
+                </span>
+
+              </div>
+
+
+              <h2>
+                A random night
+                worth remembering.
+              </h2>
+
+
+              <p>
+                Today we played together,
+                talked about random things,
+                laughed at things that probably
+                weren't even that funny,
+                and somehow another ordinary day
+                became a memory worth saving.
+              </p>
+
+
+              <div class="entry-footer">
+
+                <div class="tags">
+
+                  <span class="tag">
+                    gaming
+                  </span>
+
+                  <span class="tag">
+                    late-night
+                  </span>
+
+                  <span class="tag">
+                    us
+                  </span>
+
+                </div>
+
+
+                <span class="entry-number">
+                  ENTRY 001
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </article>
+
+
+
+        <!-- ===============================================
+             ENTRY 02
+             =============================================== -->
+
+        <article
+          class="diary-entry"
+          data-type="chat"
+          data-search="whatsapp conversation talking chat"
+        >
+
+          <div class="entry-date">
+
+            <span class="day">
+              30
+            </span>
+
+            <span class="month">
+              SEP 2026
+            </span>
+
+            <span class="entry-dot"></span>
+
+          </div>
+
+
+          <div class="entry-card">
+
+            <div class="entry-image">
+
+              <div class="entry-image-placeholder">
+
+                A conversation
+
+                <small>
+                  Add screenshot later
+                </small>
+
+              </div>
+
+            </div>
+
+
+            <div class="entry-content">
+
+              <div class="entry-meta">
+
+                <span>
+                  CHAT MOMENT
+                </span>
+
+                <span class="separator"></span>
+
+                <span>
+                  01:43 AM
+                </span>
+
+              </div>
+
+
+              <h2>
+                One of those
+                long conversations.
+              </h2>
+
+
+              <p>
+                Sometimes there isn't anything
+                particularly important to talk about.
+                We just keep talking anyway.
+                And honestly, those are some of
+                my favourite conversations.
+              </p>
+
+
+              <div class="entry-footer">
+
+                <div class="tags">
+
+                  <span class="tag">
+                    whatsapp
+                  </span>
+
+                  <span class="tag">
+                    conversation
+                  </span>
+
+                </div>
+
+
+                <span class="entry-number">
+                  ENTRY 002
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </article>
+
+
+
+        <!-- ===============================================
+             ENTRY 03
+             =============================================== -->
+
+        <article
+          class="diary-entry"
+          data-type="memory"
+          data-search="photo memory beautiful day"
+        >
+
+          <div class="entry-date">
+
+            <span class="day">
+              29
+            </span>
+
+            <span class="month">
+              SEP 2026
+            </span>
+
+            <span class="entry-dot"></span>
+
+          </div>
+
+
+          <div class="entry-card">
+
+            <div class="entry-image">
+
+              <div class="entry-image-placeholder">
+
+                A little moment
+
+                <small>
+                  Add your photo later
+                </small>
+
+              </div>
+
+            </div>
+
+
+            <div class="entry-content">
+
+              <div class="entry-meta">
+
+                <span>
+                  MEMORY
+                </span>
+
+                <span class="separator"></span>
+
+                <span>
+                  SOMETHING SMALL
+                </span>
+
+              </div>
+
+
+              <h2>
+                The kind of moment
+                you don't plan.
+              </h2>
+
+
+              <p>
+                Not every memory needs a big story.
+                Some are worth keeping simply because
+                they made us smile.
+              </p>
+
+
+              <div class="entry-footer">
+
+                <div class="tags">
+
+                  <span class="tag">
+                    memory
+                  </span>
+
+                  <span class="tag">
+                    little-things
+                  </span>
+
+                </div>
+
+
+                <span class="entry-number">
+                  ENTRY 003
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </article>
+
+
+      </div>
+
+
+      <!-- EMPTY SEARCH RESULT -->
+
+      <div
+        class="empty-diary"
+        id="emptyDiary"
+      >
+
+        <h2>
+          Nothing found.
+        </h2>
+
+        <p>
+          Maybe that memory is still waiting
+          to be written.
+        </p>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+
+  <!-- =====================================================
+       FOOTER
+       ===================================================== -->
+
+  <footer>
+
+    <div class="footer-logo">
+      EREMIKA <span>FOREVER</span>
+    </div>
+
+    <p>
+      Every ordinary day deserves a place in our story.
+    </p>
+
+    <div class="footer-bottom">
+
+      <span>
+        © 2026
+      </span>
+
+      <span>
+        OURS, FOREVER.
+      </span>
+
+    </div>
+
+  </footer>
+
+
+
+  <!-- Main JS -->
+
+  <script src="script.js"></script>
+
+
+  <!-- =====================================================
+       DIARY SEARCH + FILTER
+       ===================================================== -->
+
+  <script>
+
+    const entries =
+      document.querySelectorAll(".diary-entry");
+
+    const filters =
+      document.querySelectorAll(".filter-button");
+
+    const search =
+      document.getElementById("diarySearch");
+
+    const empty =
+      document.getElementById("emptyDiary");
+
+
+    let activeFilter = "all";
+
+
+    function updateDiary() {
+
+      const query =
+        search.value
+          .toLowerCase()
+          .trim();
+
+      let visible = 0;
+
+
+      entries.forEach(entry => {
+
+        const type =
+          entry.dataset.type;
+
+        const searchable =
+          entry.dataset.search
+            .toLowerCase();
+
+
+        const matchesFilter =
+          activeFilter === "all" ||
+          type === activeFilter;
+
+
+        const matchesSearch =
+          !query ||
+          searchable.includes(query);
+
+
+        if (
+          matchesFilter &&
+          matchesSearch
+        ) {
+
+          entry.style.display = "grid";
+
+          visible++;
+
+        } else {
+
+          entry.style.display = "none";
+
+        }
+
+      });
+
+
+      empty.style.display =
+        visible === 0
+          ? "block"
+          : "none";
+
+    }
+
+
+    filters.forEach(button => {
+
+      button.addEventListener(
+        "click",
+        () => {
+
+          filters.forEach(btn =>
+            btn.classList.remove("active")
+          );
+
+          button.classList.add("active");
+
+          activeFilter =
+            button.dataset.filter;
+
+          updateDiary();
+
+        }
+      );
+
+    });
+
+
+    search.addEventListener(
+      "input",
+      updateDiary
+    );
+
+  </script>
+
+</body>
+
+</html>
